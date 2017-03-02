@@ -1,0 +1,23 @@
+#Using R to open and convert .dta files into R-based files. 
+#Instructions here: https://www.r-bloggers.com/readingwriting-stata-dta-files-with-foreign/
+#Install Foreign package
+#library(foreign)
+#reading a .dta file using function read.dta
+#setwd("C:/Users/zeitlere/Desktop/Togo QUIBB Data NOT FOR DISTRIBUTION/INSEED's QUIBB - Household Survey/Base_QUIBB2011")
+#STATAtest <- read.dta("Menage.dta")
+#head(STATAtest)
+#got error message that we aren't in a stat version 5-12
+#trying readstata13
+#install.packages("readstata13")
+library(readstata13)
+setwd("C:/Users/zeitlere/Desktop/Togo QUIBB Data NOT FOR DISTRIBUTION/INSEED's QUIBB - Household Survey/Base_QUIBB2011")
+STATAtest <- read.dta13("Menage.dta")
+head(STATAtest)
+Section_F1 <- read.dta13("Section_F1.dta")
+#2006 survey is in SPSS format, .sav. trying out foreign package on that
+#instructions for opening spss files in R: https://www.r-bloggers.com/how-to-open-an-spss-file-into-r/
+#^suggests that you can assign directories to a string so that you don't have to reset the wd
+library(foreign)
+data2006 = file.choose()
+pauvrete.2006 <- read.spss(data2006, to.data.frame = TRUE)
+#making list of file names
