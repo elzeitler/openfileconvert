@@ -10,14 +10,35 @@
 #trying readstata13
 #install.packages("readstata13")
 library(readstata13)
-setwd("C:/Users/zeitlere/Desktop/Togo QUIBB Data NOT FOR DISTRIBUTION/INSEED's QUIBB - Household Survey/Base_QUIBB2011")
-STATAtest <- read.dta13("Menage.dta")
-head(STATAtest)
-Section_F1 <- read.dta13("Section_F1.dta")
+setwd("C:/Users/zeitlere/Desktop/Open Data Sets/Tanzania MCC-PEPFAR Open Data/MCC/MCC TZA Evaluation Data")
+#setwd("C:/Users/zeitlere/Desktop/Togo QUIBB Data NOT FOR DISTRIBUTION/INSEED's QUIBB - Household Survey/Base_QUIBB2011")
+#STATAtest <- read.dta13("Menage.dta")
+#head(STATAtest)
+#Section_F1 <- read.dta13("Section_F1.dta")
 #2006 survey is in SPSS format, .sav. trying out foreign package on that
 #instructions for opening spss files in R: https://www.r-bloggers.com/how-to-open-an-spss-file-into-r/
 #^suggests that you can assign directories to a string so that you don't have to reset the wd
 library(foreign)
-data2006 = file.choose()
-pauvrete.2006 <- read.spss(data2006, to.data.frame = TRUE)
-#making list of file names
+#Stop running the pauvrete on this script.
+#data2006 = file.choose()
+#pauvrete.2006 <- read.spss(data2006, to.data.frame = TRUE)
+#making list of file names - put this off for now
+
+#looking at data for workshop
+AllHHLevelPU <- read.dta13("All HH-Level - Public Use.dta")
+write.csv(AllHHLevelPU, "AllHHLevelPU.csv")
+
+CPOtherDesc <- read.dta13("CP_OtherDescription - Public Use.dta")
+write.csv(CPOtherDesc, "CPOtherDesc.csv")
+
+CP_PublicUse <- read.dta13("CP_PublicUse.dta")
+write.csv(CP_PublicUse, "CP_PublicUse.csv")
+
+HHKitongojiPublicUse <- read.dta13("HHKitongoji - Public Use.dta")
+write.csv(HHKitongojiPublicUse, "HHKitongojiPublicUse.csv")
+
+HHmemberPU <- read.dta13("HHmember - Public Use.dta")
+write.csv(HHmemberPU, "HHmemberPU.csv")
+
+HHTransportMethodPU <- read.dta13("HHTransportMethod - Public Use.dta")
+write.csv(HHTransportMethodPU, "HHTransportMethodPU.csv")
